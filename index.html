@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoon Research Group | University of Seoul</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&family=Nunito+Sans:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HOME-SPECIFIC ── */
+.hero{padding-top:64px;min-height:100vh;display:grid;grid-template-rows:1fr auto;}
+.hero-main{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 64px - 62px);}
+.hero-left{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.hero-right{display:flex;flex-direction:column;}
+
+/* slideshow */
+.slideshow{flex:1;position:relative;overflow:hidden;background:var(--bg);min-height:320px;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 0.9s ease;background-size:cover;background-position:center;}
+.slide.active{opacity:1;}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,64,148,.55) 0%,transparent 55%);}
+.slide-caption{position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;z-index:2;color:white;}
+.slide-caption p{font-family:'Fira Code',monospace;font-size:0.72rem;letter-spacing:.09em;text-transform:uppercase;opacity:.88;}
+.slide-dots{position:absolute;bottom:.75rem;right:1.25rem;z-index:3;display:flex;gap:5px;align-items:center;}
+.dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:.2s;border:none;padding:0;}
+.dot.active{background:white;transform:scale(1.2);}
+.slide-prev,.slide-next{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,64,148,.5);border:none;color:white;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:.2s;}
+.slide-prev{left:.75rem;}.slide-next{right:.75rem;}
+.slide-prev:hover,.slide-next:hover{background:rgba(0,64,148,.85);}
+
+/* highlight cards */
+.highlight-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);}
+.h-card{background:var(--white);padding:1rem 1.25rem;border-left:3px solid var(--uos-sig);transition:.2s;}
+.h-card:hover{background:#EEF3FB;}
+.h-card .h-label{font-family:'Fira Code',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--uos-gold);margin-bottom:.3rem;}
+.h-card h4{font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.4;}
+
+/* research grid */
+.research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+
+/* news strip */
+.news-strip{background:var(--white);border-top:1px solid var(--border);padding:3rem 2.5rem;}
+.news-strip-wrap{max-width:1200px;margin:0 auto;}
+.news-strip-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.5rem;}
+.news-strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.n-card{border-left:3px solid var(--uos-em);padding:1rem 1.25rem;background:var(--bg);}
+.n-date{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--uos-em);letter-spacing:.08em;margin-bottom:.4rem;}
+.n-card h4{font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--ink);line-height:1.4;}
+.n-card p{font-size:.85rem;color:var(--mid);margin-top:.3rem;line-height:1.55;}
+
+@media(max-width:900px){
+  .hero-main{grid-template-columns:1fr;}
+  .hero-left{padding:3rem 1.5rem;}
+  .research-grid{grid-template-columns:1fr 1fr;}
+  .news-strip-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .research-grid{grid-template-columns:1fr;}
+  .news-strip-grid{grid-template-columns:1fr;}
+  .highlight-cards{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="brand" href="index.html">
+    <div class="brand-mark"><span>Y</span></div>
+    <div class="brand-text">
+      <span class="brand-main">Yoon Research Group</span>
+      <span class="brand-sub">University of Seoul · Korea</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="personnel.html">Personnel</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="positions.html">Open Positions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-main">
+
+    <!-- Left: text -->
+    <div class="hero-left">
+      <div class="tag-label">
+        <div class="tag-dot"></div>
+        <span>Soft Materials &amp; Devices Lab</span>
+      </div>
+      <h1 style="font-family:'DM Sans',sans-serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:300;line-height:1.15;color:var(--ink);margin-bottom:1.5rem;">
+        Exploring the<br>Wonders of<br><strong style="font-weight:700;color:var(--uos-sig);">Soft Matter</strong>
+      </h1>
+      <p style="font-size:1rem;color:var(--mid);max-width:460px;margin-bottom:2.5rem;font-weight:400;line-height:1.85;">
+        We design ionic hydrogels, stretchable electronics, and wearable devices that bridge polymer science and real-world applications. Department of Chemical Engineering, University of Seoul.
+      </p>
+      <div style="display:flex;gap:.75rem;">
+        <a class="btn-primary" href="research.html">Our Research</a>
+        <a class="btn-outline" href="publications.html">Publications</a>
+      </div>
+    </div>
+
+    <!-- Right: slideshow + cards -->
+    <div class="hero-right">
+      <div class="slideshow" id="slideshow">
+
+        <div class="slide active" style="background-image:url('https://static.wixstatic.com/media/6a585e_a5c5bbad5c3641c4952c6e6bfc0dc8cc~mv2.jpg/v1/fill/w_1080,h_810,al_c,q_85,enc_avif,quality_auto/PSK%20Fall%202023.jpg')">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption"><p>PSK Fall 2023 · Polymer Society of Korea</p></div>
+        </div>
+        <div class="slide" style="background-image:url('https://static.wixstatic.com/media/6a585e_3d7cd29b8b7c4b52ae80374826cd56d8~mv2.jpg/v1/fill/w_1080,h_810,al_c,q_85,enc_avif,quality_auto/PSK%20Spring%202023.jpg')">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption"><p>PSK Spring 2023 · Polymer Society of Korea</p></div>
+        </div>
+        <div class="slide" style="background-image:url('https://static.wixstatic.com/media/6a585e_7c0b2a1d3f4e5a6b7c8d9e0f1a2b3c4d~mv2.jpg/v1/fill/w_1080,h_810,al_c,q_85,enc_avif,quality_auto/Group%20Photo%20Fall%202022.jpg')">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption"><p>Group Photo · Fall 2022</p></div>
+        </div>
+        <div class="slide" style="background:linear-gradient(135deg,var(--uos-sig) 0%,var(--uos-blue-l) 50%,var(--uos-em) 100%);">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;gap:1rem;">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="22" r="11" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="14" cy="46" r="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <circle cx="50" cy="46" r="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+              <line x1="32" y1="33" x2="14" y2="39" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+              <line x1="32" y1="33" x2="50" y2="39" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+              <circle cx="32" cy="22" r="3" fill="rgba(255,255,255,0.6)"/>
+            </svg>
+            <p style="font-family:'Fira Code',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;">Yoon Research Group · UOS</p>
+          </div>
+          <div class="slide-caption"><p>Add group photos to images/gallery/</p></div>
+        </div>
+
+        <button class="slide-prev" id="prevBtn">&#8592;</button>
+        <button class="slide-next" id="nextBtn">&#8594;</button>
+        <div class="slide-dots" id="dots">
+          <button class="dot active"></button>
+          <button class="dot"></button>
+          <button class="dot"></button>
+          <button class="dot"></button>
+        </div>
+      </div>
+
+      <div class="highlight-cards">
+        <div class="h-card"><div class="h-label">2026 · ESM</div><h4>Stretchable Microsupercapacitor</h4></div>
+        <div class="h-card"><div class="h-label">2025 · Small</div><h4>3D-Printed EL Devices</h4></div>
+        <div class="h-card"><div class="h-label">2025 · JMCC</div><h4>Hydrogel Optical Fibers</h4></div>
+        <div class="h-card"><div class="h-label">Nature Photonics 2023</div><h4>1400% Stretchable EL</h4></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Info band -->
+  <div class="info-band">
+    <div class="band-item">
+      <div class="band-label">Address</div>
+      <div class="band-value">Dept. of Chemical Engineering, University of Seoul, Korea</div>
+    </div>
+    <div class="band-item">
+      <div class="band-label">Contact</div>
+      <div class="band-value"><a href="mailto:jyoon@uos.ac.kr">jyoon@uos.ac.kr</a></div>
+    </div>
+    <div class="band-item">
+      <div class="band-label">Google Scholar</div>
+      <div class="band-value"><a href="https://scholar.google.com/citations?user=Jinhwan+Yoon" target="_blank">View Profile →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH AREAS -->
+<div class="section" style="background:var(--bg);">
+  <div class="section-wrap">
+    <div class="section-top">
+      <span class="section-title">Research Areas</span>
+      <a class="section-link" href="research.html">View all →</a>
+    </div>
+    <div class="research-grid">
+      <div class="card"><div class="card-num">01 ////</div><h3>Ionic Hydrogel Design &amp; Mechanics</h3><p>Designing double-network and zwitterionic hydrogel architectures with controlled ionic conductivity, mechanical toughness, and stretchability exceeding 1000%.</p></div>
+      <div class="card"><div class="card-num">02 ////</div><h3>Soft Material Fabrication</h3><p>3D printing and microfluidic fabrication of structured soft materials — from fiber-shaped hydrogels to multilayer ionogel films with precisely tuned geometry.</p></div>
+      <div class="card"><div class="card-num">03 ////</div><h3>Stretchable Conductors &amp; Electrodes</h3><p>Conductive hydrogel and ionogel electrodes for skin-conformal electronics, combining high electrical performance with extreme mechanical deformability.</p></div>
+      <div class="card"><div class="card-num">04 ////</div><h3>Energy Harvesting &amp; Storage</h3><p>Deformable triboelectric nanogenerators and intrinsically stretchable microsupercapacitors for self-powered wearable systems.</p></div>
+      <div class="card"><div class="card-num">05 ////</div><h3>Stretchable Light-Emitting Devices</h3><p>AC electroluminescent devices and quantum-dot color converters with multicolor patterning, printed onto ionic hydrogel substrates.</p></div>
+      <div class="card"><div class="card-num">06 ////</div><h3>Wearable &amp; Biomedical Devices</h3><p>Skin-adhesive biosignal sensors, hydrogel optical fibers for photobiomodulation, and soft scaffolds for electrostimulation and tissue interfacing.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- RECENT NEWS -->
+<div class="news-strip">
+  <div class="news-strip-wrap">
+    <div class="news-strip-top">
+      <span class="section-title">Recent News</span>
+      <a class="section-link" href="news.html">All news →</a>
+    </div>
+    <div class="news-strip-grid">
+      <div class="n-card"><div class="n-date">2026.02</div><h4>Paper Featured in Yonhap News</h4><p>Stretchable microsupercapacitor work covered by national press.</p></div>
+      <div class="n-card"><div class="n-date">2025.03</div><h4>Prisca Wins PSK Poster Award</h4><p>Poster Presentation Award at PSK Spring Meeting 2025.</p></div>
+      <div class="n-card"><div class="n-date">2024.09</div><h4>New Position at University of Seoul</h4><p>Prof. Yoon joins the Dept. of Chemical Engineering, UOS.</p></div>
+      <div class="n-card"><div class="n-date">2023.10</div><h4>Toray Mid-Career Award</h4><p>Prof. Yoon receives the Toray Award at PSK Fall 2023.</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>©2011–2026 Yoon Research Group &nbsp;·&nbsp; Department of Chemical Engineering, <a href="https://www.uos.ac.kr" target="_blank">University of Seoul</a></span>
+  <span><a href="mailto:jyoon@uos.ac.kr">jyoon@uos.ac.kr</a></span>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const slides=document.querySelectorAll('.slide');
+  const dots=document.querySelectorAll('.dot');
+  let cur=0,timer;
+  function goTo(n){
+    slides[cur].classList.remove('active');dots[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');dots[cur].classList.add('active');
+  }
+  function start(){timer=setInterval(()=>goTo(cur+1),4500);}
+  function stop(){clearInterval(timer);}
+  document.getElementById('prevBtn').addEventListener('click',()=>{stop();goTo(cur-1);start();});
+  document.getElementById('nextBtn').addEventListener('click',()=>{stop();goTo(cur+1);start();});
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{stop();goTo(i);start();}));
+  start();
+})();
+</script>
+</body>
+</html>
