@@ -3,8 +3,6 @@
    UOS Color System + DM Sans + Nunito Sans
    ═══════════════════════════════════════════════ */
 
-/* ── Google Fonts loaded in each HTML head ── */
-
 /* ── CSS Variables ────────────────────────── */
 :root{
   --uos-sig:    #004094;
@@ -38,7 +36,7 @@ body {
   font-size:16px;
 }
 img { max-width:100%; display:block; }
-a { text-decoration:none; }
+a   { text-decoration:none; }
 
 /* ── NAV ──────────────────────────────────── */
 nav {
@@ -51,33 +49,38 @@ nav {
 }
 .brand { display:flex; align-items:center; gap:0.85rem; }
 .brand-mark {
-  width:36px; height:36px; background:var(--uos-sig);
+  width:36px; height:36px;
+  background:var(--uos-sig);
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
 }
 .brand-mark span {
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem; color:var(--uos-gold); font-weight:700;
+  font-family:'DM Sans',sans-serif; font-size:1rem;
+  color:var(--uos-gold); font-weight:700;
 }
 .brand-text { display:flex; flex-direction:column; line-height:1.25; }
 .brand-main {
-  font-family:'DM Sans',sans-serif;
-  font-size:0.95rem; font-weight:600; color:var(--ink);
+  font-family:'DM Sans',sans-serif; font-size:0.95rem;
+  font-weight:600; color:var(--ink);
 }
 .brand-sub {
-  font-family:'Fira Code',monospace;
-  font-size:0.65rem; color:var(--light); letter-spacing:0.06em;
+  font-family:'Fira Code',monospace; font-size:0.65rem;
+  color:var(--light); letter-spacing:0.06em;
 }
 .nav-links { list-style:none; display:flex; }
 .nav-links a {
-  display:block; padding:0 0.9rem; height:64px; line-height:61px;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.92rem; font-weight:600; color:var(--mid);
+  display:block; padding:0 0.9rem;
+  height:64px; line-height:61px;
+  font-family:'DM Sans',sans-serif; font-size:0.92rem;
+  font-weight:600; color:var(--mid);
   letter-spacing:0.01em; transition:.2s;
   border-bottom:3px solid transparent; margin-bottom:-3px;
 }
 .nav-links a:hover,
-.nav-links a.active { color:var(--uos-sig); border-bottom-color:var(--uos-sig); }
+.nav-links a.active {
+  color:var(--uos-sig);
+  border-bottom-color:var(--uos-sig);
+}
 .nav-toggle { display:none; }
 
 /* ── PAGE HEADER (inner pages) ────────────── */
@@ -88,8 +91,8 @@ nav {
 }
 .page-hero-inner { max-width:1200px; margin:0 auto; }
 .page-hero-label {
-  font-family:'Fira Code',monospace;
-  font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+  font-family:'Fira Code',monospace; font-size:0.72rem;
+  letter-spacing:0.14em; text-transform:uppercase;
   color:var(--uos-blue-s); margin-bottom:0.75rem;
 }
 .page-hero h1 {
@@ -108,42 +111,41 @@ nav {
   border-bottom:2px solid var(--uos-sig);
 }
 .section-title {
-  font-family:'DM Sans',sans-serif;
-  font-size:1.6rem; font-weight:300; color:var(--ink);
+  font-family:'DM Sans',sans-serif; font-size:1.6rem;
+  font-weight:300; color:var(--ink);
 }
 .section-link {
-  font-family:'DM Sans',sans-serif;
-  font-size:0.88rem; font-weight:700; color:var(--uos-sig);
+  font-family:'DM Sans',sans-serif; font-size:0.88rem;
+  font-weight:700; color:var(--uos-sig);
 }
 .section-link:hover { color:var(--uos-blue); }
 
 /* ── TAG LABEL ────────────────────────────── */
 .tag-label {
   display:inline-flex; align-items:center; gap:0.5rem;
-  background:#EEF3FB; padding:5px 14px; margin-bottom:1.5rem;
-  width:fit-content;
+  background:#EEF3FB; padding:5px 14px;
+  margin-bottom:1.5rem; width:fit-content;
 }
 .tag-dot { width:6px; height:6px; background:var(--uos-sig); border-radius:50%; }
 .tag-label span {
-  font-family:'Fira Code',monospace;
-  font-size:0.72rem; color:var(--uos-sig);
-  letter-spacing:0.1em; text-transform:uppercase;
+  font-family:'Fira Code',monospace; font-size:0.72rem;
+  color:var(--uos-sig); letter-spacing:0.1em; text-transform:uppercase;
 }
 
 /* ── BUTTONS ──────────────────────────────── */
 .btn-primary {
   display:inline-block; padding:0.8rem 1.85rem;
   background:var(--uos-sig); color:white;
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem; font-weight:700; letter-spacing:0.02em;
+  font-family:'DM Sans',sans-serif; font-size:0.9rem;
+  font-weight:700; letter-spacing:0.02em;
   border:2px solid var(--uos-sig); transition:.2s;
 }
 .btn-primary:hover { background:var(--uos-blue); border-color:var(--uos-blue); }
 .btn-outline {
   display:inline-block; padding:0.8rem 1.85rem;
   color:var(--uos-sig);
-  font-family:'DM Sans',sans-serif;
-  font-size:0.9rem; font-weight:700; letter-spacing:0.02em;
+  font-family:'DM Sans',sans-serif; font-size:0.9rem;
+  font-weight:700; letter-spacing:0.02em;
   border:2px solid var(--border); transition:.2s;
 }
 .btn-outline:hover { border-color:var(--uos-sig); }
@@ -156,20 +158,18 @@ nav {
 }
 .card::after {
   content:''; position:absolute; bottom:0; left:0;
-  width:100%; height:3px;
-  background:var(--uos-em);
+  width:100%; height:3px; background:var(--uos-em);
   transform:scaleX(0); transform-origin:left; transition:.3s;
 }
 .card:hover::after { transform:scaleX(1); }
 .card:hover { box-shadow:0 4px 24px rgba(0,64,148,0.1); }
 .card-num {
-  font-family:'Fira Code',monospace;
-  font-size:0.68rem; color:var(--uos-gray-m);
-  letter-spacing:0.1em; margin-bottom:1rem;
+  font-family:'Fira Code',monospace; font-size:0.68rem;
+  color:var(--uos-gray-m); letter-spacing:0.1em; margin-bottom:1rem;
 }
 .card h3 {
-  font-family:'DM Sans',sans-serif;
-  font-size:1.05rem; font-weight:600; color:var(--ink); margin-bottom:0.5rem;
+  font-family:'DM Sans',sans-serif; font-size:1.05rem;
+  font-weight:600; color:var(--ink); margin-bottom:0.5rem;
 }
 .card p { font-size:0.9rem; color:var(--mid); line-height:1.65; }
 
@@ -181,23 +181,22 @@ nav {
 }
 .band-item { text-align:center; }
 .band-label {
-  font-family:'Fira Code',monospace;
-  font-size:0.7rem; text-transform:uppercase;
-  letter-spacing:0.1em; color:var(--uos-blue-s);
+  font-family:'Fira Code',monospace; font-size:0.7rem;
+  text-transform:uppercase; letter-spacing:0.1em; color:var(--uos-blue-s);
 }
 .band-value {
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem; font-weight:600; color:white; margin-top:2px;
+  font-family:'DM Sans',sans-serif; font-size:1rem;
+  font-weight:600; color:white; margin-top:2px;
 }
 .band-value a { color:white; }
 
 /* ── FOOTER ───────────────────────────────── */
 footer {
   background:var(--uos-sig); padding:2rem 2.5rem;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:1rem;
-  font-family:'Nunito Sans',sans-serif;
-  font-size:0.85rem; color:var(--uos-blue-s);
+  display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; gap:1rem;
+  font-family:'Nunito Sans',sans-serif; font-size:0.85rem;
+  color:var(--uos-blue-s);
 }
 footer a { color:var(--uos-blue-s); }
 footer a:hover { color:white; }
@@ -206,46 +205,56 @@ footer a:hover { color:white; }
 .personnel-section { padding:4rem 2.5rem; }
 .personnel-section + .personnel-section { padding-top:0; }
 .personnel-wrap { max-width:1200px; margin:0 auto; }
-.section-divider {
-  border:none; border-top:2px solid var(--uos-sig);
-  margin-bottom:2.5rem;
-}
+.section-divider { border:none; border-top:2px solid var(--uos-sig); margin-bottom:2.5rem; }
+
 .person-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:1.5rem;
 }
 .person-card {
-  background:var(--white); border:1px solid var(--border); overflow:hidden;
-  transition:.25s;
+  background:var(--white); border:1px solid var(--border);
+  overflow:hidden; transition:.25s;
 }
 .person-card:hover { box-shadow:0 4px 20px rgba(0,64,148,0.1); }
 .person-card.pi { grid-column:span 2; display:flex; }
 .person-card.pi .photo-wrap { width:200px; flex-shrink:0; }
 .person-card.pi .photo-wrap img { height:100%; object-fit:cover; }
-.photo-wrap { aspect-ratio:3/4; overflow:hidden; background:var(--bg); }
-.photo-wrap img { width:100%; height:100%; object-fit:cover; object-position:top; }
+
+.photo-wrap {
+  aspect-ratio:3/4;
+  overflow:hidden;
+  background:var(--bg);
+}
+.photo-wrap img {
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:top 5%;
+}
 .photo-placeholder {
   width:100%; height:100%;
   background:linear-gradient(135deg,var(--uos-sig) 0%,var(--uos-blue-l) 100%);
   display:flex; align-items:center; justify-content:center;
   font-size:3rem; color:rgba(255,255,255,0.25);
 }
+
 .person-info { padding:1.25rem; }
 .person-role {
-  font-family:'Fira Code',monospace;
-  font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase;
+  font-family:'Fira Code',monospace; font-size:0.65rem;
+  letter-spacing:0.1em; text-transform:uppercase;
   color:var(--uos-em); margin-bottom:0.4rem;
 }
 .person-name {
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem;
+  font-family:'DM Sans',sans-serif; font-size:1rem;
+  font-weight:700; color:var(--ink); margin-bottom:0.5rem;
 }
 .person-details {
-  font-size:0.82rem; color:var(--mid); line-height:1.6; margin-bottom:0.75rem;
+  font-size:0.85rem; color:var(--mid);
+  line-height:1.65; margin-bottom:0.75rem;
 }
 .person-email {
-  font-family:'Fira Code',monospace;
-  font-size:0.7rem; color:var(--uos-sig);
+  font-family:'Fira Code',monospace; font-size:0.7rem;
+  color:var(--uos-sig);
 }
 .person-email:hover { color:var(--uos-blue); }
 
@@ -253,21 +262,24 @@ footer a:hover { color:white; }
 .alumni-section { padding:0 2.5rem 4rem; }
 .alumni-wrap { max-width:1200px; margin:0 auto; }
 .alumni-subtitle {
-  font-family:'Fira Code',monospace;
-  font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-family:'Fira Code',monospace; font-size:0.7rem;
+  letter-spacing:0.12em; text-transform:uppercase;
   color:var(--light); margin-bottom:1rem; margin-top:2rem;
 }
 .alumni-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:0.5rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:0.5rem;
 }
 .alumni-item {
   display:flex; justify-content:space-between; align-items:baseline;
-  padding:0.6rem 1rem; background:var(--white); border:1px solid var(--border);
+  padding:0.6rem 1rem;
+  background:var(--white); border:1px solid var(--border);
 }
 .alumni-name { font-size:0.88rem; font-weight:600; color:var(--ink); }
 .alumni-degree {
-  font-family:'Fira Code',monospace;
-  font-size:0.65rem; color:var(--uos-em); white-space:nowrap; margin-left:0.5rem;
+  font-family:'Fira Code',monospace; font-size:0.65rem;
+  color:var(--uos-em); white-space:nowrap; margin-left:0.5rem;
 }
 
 /* ── PUBLICATIONS ─────────────────────────── */
@@ -275,57 +287,91 @@ footer a:hover { color:white; }
 .pub-section:nth-child(even) { background:var(--bg); }
 .pub-wrap { max-width:1000px; margin:0 auto; }
 .pub-year-header {
-  font-family:'DM Sans',sans-serif;
-  font-size:1.3rem; font-weight:700; color:var(--uos-sig);
+  font-family:'DM Sans',sans-serif; font-size:1.4rem;
+  font-weight:700; color:var(--uos-sig);
   padding:0.5rem 0; margin-bottom:1.5rem;
   border-bottom:2px solid var(--uos-sig);
   display:flex; align-items:center; gap:1rem;
 }
 .pub-list { list-style:none; }
 .pub-item {
-  padding:1rem 0 1rem 1rem;
+  padding:1.1rem 0 1.1rem 1rem;
   border-left:3px solid transparent;
   border-bottom:1px solid var(--border);
-  transition:.2s; font-size:0.9rem; line-height:1.65; color:var(--mid);
+  transition:.2s;
+  font-size:0.95rem;   /* ← was 0.9rem */
+  line-height:1.7;
+  color:var(--mid);
 }
-.pub-item:hover { border-left-color:var(--uos-em); background:#F8FAFE; padding-left:1.25rem; }
+.pub-item:hover {
+  border-left-color:var(--uos-em);
+  background:#F8FAFE;
+  padding-left:1.25rem;
+}
 .pub-item:last-child { border-bottom:none; }
+
+/* Publication number — now clearly visible */
 .pub-num {
   font-family:'Fira Code',monospace;
-  font-size:0.65rem; color:var(--uos-gray-l); margin-right:0.5rem;
+  font-size:0.72rem;
+  color:var(--uos-sig);          /* ← was var(--uos-gray-l), now blue */
+  font-weight:600;
+  margin-right:0.5rem;
+  background:#EEF3FB;            /* ← subtle blue tint badge */
+  padding:1px 5px;
+  border-radius:2px;
 }
-.pub-title { font-weight:600; color:var(--ink); }
-.pub-doi { color:var(--uos-sig); margin-left:0.4rem; font-size:0.82rem; }
-.pub-doi:hover { color:var(--uos-blue); }
+
+.pub-title { font-weight:600; color:var(--ink); font-size:0.98rem; }
+
+/* DOI / Link badge with background highlight */
+.pub-doi {
+  display:inline-block;
+  margin-left:0.5rem;
+  font-size:0.78rem;
+  font-family:'Fira Code',monospace;
+  color:var(--uos-sig);
+  background:#EEF3FB;
+  border:1px solid var(--uos-blue-m);
+  padding:1px 7px;
+  border-radius:3px;
+  transition:.2s;
+}
+.pub-doi:hover {
+  background:var(--uos-sig);
+  color:white;
+  border-color:var(--uos-sig);
+}
 
 /* ── RESEARCH PAGE ────────────────────────── */
-.research-area {
-  padding:4rem 2.5rem;
-  border-bottom:1px solid var(--border);
-}
+.research-area { padding:4rem 2.5rem; border-bottom:1px solid var(--border); }
 .research-area:nth-child(even) { background:var(--white); }
-.research-wrap { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 2fr; gap:4rem; align-items:start; }
+.research-wrap {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 2fr;
+  gap:4rem; align-items:start;
+}
 .research-label { position:sticky; top:80px; }
 .research-num {
-  font-family:'Fira Code',monospace;
-  font-size:3rem; font-weight:500; color:var(--border);
-  line-height:1; margin-bottom:0.75rem;
+  font-family:'Fira Code',monospace; font-size:3rem;
+  font-weight:500; color:var(--border); line-height:1; margin-bottom:0.75rem;
 }
 .research-area-title {
-  font-family:'DM Sans',sans-serif;
-  font-size:1.3rem; font-weight:700; color:var(--uos-sig); line-height:1.3;
-  margin-bottom:1rem;
+  font-family:'DM Sans',sans-serif; font-size:1.3rem;
+  font-weight:700; color:var(--uos-sig); line-height:1.3; margin-bottom:1rem;
 }
-.research-body p { font-size:0.95rem; color:var(--mid); line-height:1.8; margin-bottom:1rem; }
+.research-body p {
+  font-size:0.95rem; color:var(--mid); line-height:1.8; margin-bottom:1rem;
+}
 .research-body .key-pubs { margin-top:1.5rem; }
 .research-body .key-pubs-label {
-  font-family:'Fira Code',monospace;
-  font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+  font-family:'Fira Code',monospace; font-size:0.68rem;
+  letter-spacing:0.1em; text-transform:uppercase;
   color:var(--uos-em); margin-bottom:0.75rem;
 }
 .research-body .key-pubs li {
-  font-size:0.85rem; color:var(--mid); margin-bottom:0.5rem; line-height:1.55;
-  padding-left:1rem; position:relative;
+  font-size:0.85rem; color:var(--mid); margin-bottom:0.5rem;
+  line-height:1.55; padding-left:1rem; position:relative;
 }
 .research-body .key-pubs li::before {
   content:'→'; position:absolute; left:0; color:var(--uos-em);
@@ -333,72 +379,80 @@ footer a:hover { color:white; }
 
 /* ── NEWS ─────────────────────────────────── */
 .news-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.25rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.25rem;
 }
 .news-card {
   background:var(--white); border:1px solid var(--border);
-  padding:1.5rem; transition:.2s;
-  border-top:3px solid var(--uos-em);
+  padding:1.5rem; transition:.2s; border-top:3px solid var(--uos-em);
 }
 .news-card:hover { box-shadow:0 4px 20px rgba(0,64,148,0.1); }
 .news-date {
-  font-family:'Fira Code',monospace;
-  font-size:0.7rem; letter-spacing:0.08em; color:var(--uos-em); margin-bottom:0.5rem;
+  font-family:'Fira Code',monospace; font-size:0.7rem;
+  letter-spacing:0.08em; color:var(--uos-em); margin-bottom:0.5rem;
 }
 .news-card h3 {
-  font-family:'DM Sans',sans-serif;
-  font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem;
+  font-family:'DM Sans',sans-serif; font-size:0.95rem;
+  font-weight:700; color:var(--ink); margin-bottom:0.5rem;
 }
 .news-card p { font-size:0.88rem; color:var(--mid); line-height:1.65; }
 .news-card a { color:var(--uos-sig); }
 
 /* ── GALLERY ──────────────────────────────── */
 .gallery-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1rem;
 }
-.gallery-item { position:relative; overflow:hidden; aspect-ratio:4/3; background:var(--bg); border:1px solid var(--border); }
-.gallery-item img { width:100%; height:100%; object-fit:cover; transition:.3s; }
+.gallery-item {
+  position:relative; overflow:hidden;
+  aspect-ratio:4/3;
+  background:var(--bg); border:1px solid var(--border);
+}
+.gallery-item img {
+  width:100%; height:100%; object-fit:cover; transition:.3s;
+}
 .gallery-item:hover img { transform:scale(1.04); }
 .gallery-caption {
   position:absolute; bottom:0; left:0; right:0;
   background:linear-gradient(to top, rgba(0,64,148,0.8) 0%, transparent 100%);
   padding:1.5rem 1rem 0.75rem;
-  color:white;
-  font-family:'Fira Code',monospace;
+  color:white; font-family:'Fira Code',monospace;
   font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
   opacity:0; transition:.2s;
 }
 .gallery-item:hover .gallery-caption { opacity:1; }
 .gallery-placeholder {
-  width:100%; height:100%; display:flex; flex-direction:column;
+  width:100%; height:100%;
+  display:flex; flex-direction:column;
   align-items:center; justify-content:center;
   color:var(--light); gap:0.5rem;
 }
 .gallery-placeholder svg { opacity:0.35; }
 .gallery-placeholder p {
-  font-family:'Fira Code',monospace;
-  font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em;
+  font-family:'Fira Code',monospace; font-size:0.65rem;
+  text-transform:uppercase; letter-spacing:0.08em;
 }
 
 /* ── CONTACT ──────────────────────────────── */
 .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
 .contact-block { background:var(--white); border:1px solid var(--border); padding:2rem; }
 .contact-block h2 {
-  font-family:'DM Sans',sans-serif;
-  font-size:1rem; font-weight:700; color:var(--uos-sig);
+  font-family:'DM Sans',sans-serif; font-size:1rem;
+  font-weight:700; color:var(--uos-sig);
   margin-bottom:1.5rem; padding-bottom:0.75rem;
   border-bottom:2px solid var(--uos-sig);
 }
 .contact-row {
   display:grid; grid-template-columns:100px 1fr;
   gap:0.5rem; padding:0.75rem 0;
-  border-bottom:1px solid var(--border);
-  font-size:0.9rem;
+  border-bottom:1px solid var(--border); font-size:0.9rem;
 }
 .contact-row:last-child { border-bottom:none; }
 .contact-label {
-  font-family:'Fira Code',monospace;
-  font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em;
+  font-family:'Fira Code',monospace; font-size:0.68rem;
+  text-transform:uppercase; letter-spacing:0.08em;
   color:var(--light); padding-top:0.15rem;
 }
 .contact-value { color:var(--ink); line-height:1.55; }
@@ -411,8 +465,8 @@ footer a:hover { color:white; }
   border-left:4px solid var(--uos-sig);
 }
 .position-block h2 {
-  font-family:'DM Sans',sans-serif;
-  font-size:1.15rem; font-weight:700; color:var(--uos-sig); margin-bottom:1rem;
+  font-family:'DM Sans',sans-serif; font-size:1.15rem;
+  font-weight:700; color:var(--uos-sig); margin-bottom:1rem;
 }
 .position-block p, .position-block li {
   font-size:0.92rem; color:var(--mid); line-height:1.75;
@@ -422,9 +476,12 @@ footer a:hover { color:white; }
 /* ── MOBILE ───────────────────────────────── */
 @media (max-width:768px){
   nav { padding:0 1.25rem; }
-  .nav-links { display:none; position:fixed; top:64px; left:0; right:0;
-    background:var(--white); flex-direction:column; padding:1rem 0;
-    border-bottom:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,.08); }
+  .nav-links {
+    display:none; position:fixed; top:64px; left:0; right:0;
+    background:var(--white); flex-direction:column;
+    padding:1rem 0; border-bottom:1px solid var(--border);
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+  }
   .nav-links.open { display:flex; }
   .nav-links a { height:auto; line-height:1; padding:0.85rem 2rem; border-bottom:none; }
   .nav-toggle {
@@ -435,8 +492,20 @@ footer a:hover { color:white; }
   .page-hero { padding:2.5rem 1.25rem; }
   .section { padding:3rem 1.25rem; }
   .personnel-section, .alumni-section { padding-left:1.25rem; padding-right:1.25rem; }
-  .person-card.pi { flex-direction:column; grid-column:span 1; }
-  .person-card.pi .photo-wrap { width:100%; aspect-ratio:3/4; }
+
+  /* PI card on mobile — full width, portrait photo not too tall */
+  .person-card.pi {
+    flex-direction:column;
+    grid-column:span 1;
+  }
+  .person-card.pi .photo-wrap {
+    width:100%;
+    aspect-ratio:4/5;  /* ← less tall than 3/4 so it doesn't dominate on mobile */
+  }
+  .person-card.pi .photo-wrap img {
+    object-position:top 10%;  /* ← show more of the upper body */
+  }
+
   .contact-grid { grid-template-columns:1fr; }
   .research-wrap { grid-template-columns:1fr; gap:1.5rem; }
   .research-label { position:static; }
