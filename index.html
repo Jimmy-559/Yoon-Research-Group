@@ -13,19 +13,11 @@
     .hero-left { padding:5rem 4rem; display:flex; flex-direction:column; justify-content:center; border-right:1px solid var(--border); }
     .hero-right { display:flex; flex-direction:column; }
 
-    /* slideshow */
-    .slideshow { flex:1; position:relative; overflow:hidden; background:var(--bg); min-height:320px; }
-    .slide { position:absolute; inset:0; opacity:0; transition:opacity 0.9s ease; background-size:cover; background-position:center; }
-    .slide.active { opacity:1; }
-    .slide-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,64,148,.55) 0%,transparent 55%); }
-    .slide-caption { position:absolute; bottom:1.25rem; left:1.5rem; right:1.5rem; z-index:2; color:white; }
-    .slide-caption p { font-family:'Fira Code',monospace; font-size:0.72rem; letter-spacing:.09em; text-transform:uppercase; opacity:.88; }
-    .slide-dots { position:absolute; bottom:.75rem; right:1.25rem; z-index:3; display:flex; gap:5px; align-items:center; }
-    .dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer; transition:.2s; border:none; padding:0; }
-    .dot.active { background:white; transform:scale(1.2); }
-    .slide-prev,.slide-next { position:absolute; top:50%; transform:translateY(-50%); z-index:3; background:rgba(0,64,148,.5); border:none; color:white; width:34px; height:34px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1rem; transition:.2s; }
-    .slide-prev { left:.75rem; } .slide-next { right:.75rem; }
-    .slide-prev:hover,.slide-next:hover { background:rgba(0,64,148,.85); }
+    /* hero photo */
+    .hero-photo { flex:1; position:relative; overflow:hidden; background:var(--bg); min-height:320px; }
+    .hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .hero-photo-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,64,148,.45) 0%,transparent 50%); }
+    .hero-photo-caption { position:absolute; bottom:1.25rem; left:1.5rem; z-index:2; color:white; font-family:'Fira Code',monospace; font-size:0.72rem; letter-spacing:.09em; text-transform:uppercase; opacity:.88; }
 
     /* highlight cards */
     .highlight-cards { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border-top:1px solid var(--border); }
@@ -109,36 +101,10 @@
 
     <!-- Right: slideshow + cards -->
     <div class="hero-right">
-      <div class="slideshow" id="slideshow">
-
-        <div class="slide active" style="background-image:url('images/group_photo/PSK Spring 2023.jpg')">
-          <div class="slide-overlay"></div>
-          <div class="slide-caption"><p>PSK Spring 2023 · Polymer Society of Korea</p></div>
-        </div>
-
-        <div class="slide" style="background-image:url('images/group_photo/PSK Fall 2022_edited.jpg')">
-          <div class="slide-overlay"></div>
-          <div class="slide-caption"><p>PSK Fall 2022 · Polymer Society of Korea</p></div>
-        </div>
-
-        <div class="slide" style="background-image:url('images/group_photo/Group Photo Spring 2022.jpg')">
-          <div class="slide-overlay"></div>
-          <div class="slide-caption"><p>Group Photo · Spring 2022</p></div>
-        </div>
-
-        <div class="slide" style="background-image:url('images/group_photo/Yoon Jinhwan Lab Spring 2020.jpg')">
-          <div class="slide-overlay"></div>
-          <div class="slide-caption"><p>Yoon Lab · Spring 2020</p></div>
-        </div>
-
-        <button class="slide-prev" id="prevBtn">&#8592;</button>
-        <button class="slide-next" id="nextBtn">&#8594;</button>
-        <div class="slide-dots" id="dots">
-          <button class="dot active"></button>
-          <button class="dot"></button>
-          <button class="dot"></button>
-          <button class="dot"></button>
-        </div>
+      <div class="hero-photo">
+        <img src="images/group_photo/Group photo 1.jpg" alt="Yoon Research Group">
+        <div class="hero-photo-overlay"></div>
+        <div class="hero-photo-caption">Yoon Research Group · University of Seoul</div>
       </div>
 
       <div class="highlight-cards">
@@ -208,25 +174,6 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-(function(){
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.dot');
-  let cur = 0, timer;
 
-  function goTo(n){
-    slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
-    cur = (n + slides.length) % slides.length;
-    slides[cur].classList.add('active'); dots[cur].classList.add('active');
-  }
-  function start(){ timer = setInterval(() => goTo(cur + 1), 4500); }
-  function stop() { clearInterval(timer); }
-
-  document.getElementById('prevBtn').addEventListener('click', () => { stop(); goTo(cur - 1); start(); });
-  document.getElementById('nextBtn').addEventListener('click', () => { stop(); goTo(cur + 1); start(); });
-  dots.forEach((d, i) => d.addEventListener('click', () => { stop(); goTo(i); start(); }));
-  start();
-})();
-</script>
 </body>
 </html>
