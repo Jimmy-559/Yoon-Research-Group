@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Publications | Yoon Research Group</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&family=Nunito+Sans:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<style>
-.scholar-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--uos-sig);color:white;padding:.75rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;transition:.2s;margin-bottom:3rem;}
-.scholar-btn:hover{background:var(--uos-blue);}
-.pub-section-wrap{max-width:1000px;margin:0 auto;padding:0 2.5rem 4rem;}
-.pub-year-block{margin-bottom:2.5rem;}
-.pub-year-hdr{font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:700;color:var(--uos-sig);padding:.5rem 0 .75rem;margin-bottom:1rem;border-bottom:2px solid var(--uos-sig);display:flex;align-items:center;gap:.75rem;}
-.pub-list{list-style:none;}
-.pub-item{padding:.9rem 0 .9rem 1rem;border-left:3px solid transparent;border-bottom:1px solid var(--border);transition:.2s;font-size:.88rem;line-height:1.7;color:var(--mid);}
-.pub-item:last-child{border-bottom:none;}
-.pub-item:hover{border-left-color:var(--uos-em);padding-left:1.25rem;background:#F8FAFE;}
-.pub-num{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--uos-gray-l);margin-right:.4rem;}
-.pub-title{font-weight:600;color:var(--ink);}
-.pub-journal{font-style:italic;}
-.pub-link{color:var(--uos-sig);margin-left:.4rem;font-size:.8rem;}
-.pub-link:hover{color:var(--uos-blue);}
-.pub-tag{display:inline-block;font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;background:#EEF3FB;color:var(--uos-sig);margin-left:.5rem;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Yoon Research Group</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&family=Nunito+Sans:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .scholar-btn {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background:var(--uos-sig); color:white;
+      padding:.75rem 1.5rem;
+      font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:700;
+      transition:.2s; margin-bottom:3rem;
+    }
+    .scholar-btn:hover { background:var(--uos-blue); }
+
+    .pub-section-wrap { max-width:1000px; margin:0 auto; padding:0 2.5rem 4rem; }
+    .pub-year-block  { margin-bottom:2.5rem; }
+    .pub-year-hdr {
+      font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:700;
+      color:var(--uos-sig); padding:.5rem 0 .75rem; margin-bottom:1rem;
+      border-bottom:2px solid var(--uos-sig);
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .pub-list  { list-style:none; }
+    .pub-item  {
+      padding:1rem 0 1rem 1rem;
+      border-left:3px solid transparent;
+      border-bottom:1px solid var(--border);
+      transition:.2s;
+      font-size:.95rem;          /* larger */
+      line-height:1.75;
+      color:var(--mid);
+    }
+    .pub-item:last-child  { border-bottom:none; }
+    .pub-item:hover {
+      border-left-color:var(--uos-em);
+      padding-left:1.25rem;
+      background:#F8FAFE;
+    }
+
+    /* Number badge — visible blue */
+    .pub-num {
+      font-family:'Fira Code',monospace;
+      font-size:.72rem;
+      font-weight:600;
+      color:var(--uos-sig);
+      background:#EEF3FB;
+      padding:1px 5px;
+      border-radius:2px;
+      margin-right:.5rem;
+    }
+
+    .pub-title   { font-weight:600; color:var(--ink); }
+    .pub-journal { font-style:italic; }
+
+    /* Link badge with background */
+    .pub-link {
+      display:inline-block;
+      margin-left:.5rem;
+      font-size:.75rem;
+      font-family:'Fira Code',monospace;
+      color:var(--uos-sig);
+      background:#EEF3FB;
+      border:1px solid var(--uos-blue-m);
+      padding:1px 7px;
+      border-radius:3px;
+      transition:.2s;
+    }
+    .pub-link:hover {
+      background:var(--uos-sig);
+      color:white;
+      border-color:var(--uos-sig);
+    }
+
+    .pub-tag {
+      display:inline-block;
+      font-family:'Fira Code',monospace; font-size:.62rem;
+      letter-spacing:.07em; text-transform:uppercase;
+      padding:2px 7px;
+      background:#EEF3FB; color:var(--uos-sig);
+      margin-left:.5rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -58,7 +119,9 @@
   <div class="section-wrap">
     <a href="https://scholar.google.co.kr/citations?hl=ko&user=IS9u3CEAAAAJ&view_op=list_works&sortby=pubdate"
        class="scholar-btn" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
       Google Scholar Profile
     </a>
   </div>
