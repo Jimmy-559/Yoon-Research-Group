@@ -493,17 +493,17 @@ footer a:hover { color:white; }
   .section { padding:3rem 1.25rem; }
   .personnel-section, .alumni-section { padding-left:1.25rem; padding-right:1.25rem; }
 
-  /* PI card on mobile — full width, portrait photo not too tall */
+  /* PI card on mobile */
   .person-card.pi {
     flex-direction:column;
     grid-column:span 1;
   }
   .person-card.pi .photo-wrap {
     width:100%;
-    aspect-ratio:4/5;  /* ← less tall than 3/4 so it doesn't dominate on mobile */
+    aspect-ratio:3/2;
   }
   .person-card.pi .photo-wrap img {
-    object-position:top 10%;  /* ← show more of the upper body */
+    object-position:center 15%;
   }
 
   .contact-grid { grid-template-columns:1fr; }
