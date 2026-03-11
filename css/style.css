@@ -271,6 +271,7 @@ footer a:hover { color:white; }
 }
 .photo-wrap-h {
   width:160px;
+  aspect-ratio:3/4;
   flex-shrink:0;
   overflow:hidden;
   background:var(--bg);
