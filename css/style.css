@@ -270,16 +270,38 @@ footer a:hover { color:white; }
   flex-direction:row;
 }
 .photo-wrap-h {
-  width:160px;
-  aspect-ratio:3/4;
+  width:180px;
   flex-shrink:0;
   overflow:hidden;
   background:var(--bg);
+  align-self:stretch;
 }
 .photo-wrap-h img {
   width:100%; height:100%;
   object-fit:cover;
   object-position:top 5%;
+  display:block;
+}
+
+/* Card height control: text side drives height, photo fills it */
+.person-card-h .person-info {
+  padding:1.25rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:0;
+}
+
+/* Limit card height so photo doesn't go full-page on info-heavy cards */
+.person-card-h {
+  max-height:200px;
+}
+/* PI card has more career info — let it breathe */
+.person-card-h.person-card-pi {
+  max-height:none;
+}
+.person-card-h.person-card-pi .photo-wrap-h {
+  width:200px;
 }
 @media(max-width:600px){
   .person-card-h { flex-direction:column; }
