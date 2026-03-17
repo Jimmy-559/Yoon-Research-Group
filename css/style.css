@@ -279,7 +279,7 @@ footer a:hover { color:white; }
 .photo-wrap-h img {
   width:100%; height:100%;
   object-fit:cover;
-  object-position:top 5%;
+  object-position:center top;
   display:block;
 }
 .person-card-h .person-info {
@@ -563,7 +563,7 @@ footer a:hover { color:white; }
     aspect-ratio:4/3;
   }
   .photo-wrap-h img {
-    object-position:center 15%;
+    object-position:center top;
   }
   .person-card-h.person-card-pi .photo-wrap-h {
     width:100%;
