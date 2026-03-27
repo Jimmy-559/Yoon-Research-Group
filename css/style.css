@@ -383,6 +383,34 @@ footer a:hover { color:white; }
   border-color:var(--uos-sig);
 }
 
+/* pub-link badge (same as pub-doi) */
+.pub-link {
+  display:inline-block; margin-left:0.4rem;
+  font-size:0.75rem; font-family:'Fira Code',monospace;
+  color:var(--uos-sig); background:#EEF3FB;
+  border:1px solid var(--uos-blue-m);
+  padding:1px 7px; border-radius:3px; transition:.2s;
+  text-decoration:none;
+}
+.pub-link:hover { background:var(--uos-sig); color:white; border-color:var(--uos-sig); }
+
+/* Open Access badge */
+.pub-oa {
+  display:inline-block; margin-left:0.4rem;
+  font-family:'Fira Code',monospace; font-size:0.65rem;
+  letter-spacing:0.07em; text-transform:uppercase;
+  background:#E6F7F5; color:var(--uos-em);
+  border:1px solid var(--uos-em);
+  padding:1px 6px; border-radius:3px;
+}
+
+/* Altmetric donut */
+.altmetric-wrap {
+  display:inline-block; vertical-align:middle;
+  margin-left:0.5rem; line-height:1;
+}
+.altmetric-embed { display:inline-block; }
+
 /* ── RESEARCH PAGE ────────────────────────── */
 .research-area { padding:4rem 2.5rem; border-bottom:1px solid var(--border); }
 .research-area:nth-child(even) { background:var(--white); }
