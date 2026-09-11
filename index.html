@@ -37,7 +37,8 @@
     .n-card { border-left:3px solid var(--uos-em); padding:1rem 1.25rem; background:var(--bg); }
     .n-date { font-family:'Fira Code',monospace; font-size:.7rem; color:var(--uos-em); letter-spacing:.08em; margin-bottom:.4rem; }
     .n-card h4 { font-family:'DM Sans',sans-serif; font-size:.9rem; font-weight:600; color:var(--ink); line-height:1.4; }
-    .n-card p { font-size:.85rem; color:var(--mid); margin-top:.3rem; line-height:1.55; }
+    .n-card p { font-size:.85rem; color:var(--mid); margin-top:.3rem; line-height:1.55;
+      display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 
     @media(max-width:900px){
       .hero-main { grid-template-columns:1fr; }
@@ -171,7 +172,7 @@
       <span class="section-title">Recent News</span>
       <a class="section-link" href="news.html">All news →</a>
     </div>
-    <div class="news-strip-grid">
+    <div class="news-strip-grid" id="newsStrip">
       <div class="n-card"><div class="n-date">2026.02</div><h4>Paper Featured in Yonhap News</h4><p>Stretchable microsupercapacitor work covered by national press.</p></div>
       <div class="n-card"><div class="n-date">2025.03</div><h4>Prisca Wins PSK Poster Award</h4><p>Poster Presentation Award at PSK Spring Meeting 2025.</p></div>
       <div class="n-card"><div class="n-date">2024.09</div><h4>New Position at University of Seoul</h4><p>Prof. Yoon joins the Dept. of Chemical Engineering, UOS.</p></div>
@@ -186,6 +187,36 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<!-- Recent News: pulled from news.html so the home page stays in sync -->
+<script>
+(function () {
+  var grid = document.getElementById('newsStrip');
+  if (!grid || !window.fetch || !window.DOMParser) return;
+  var LIMIT = 8;
+  function esc(s) {
+    return s.replace(/[&<>"]/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m];
+    });
+  }
+  fetch('news.html', { cache: 'no-cache' })
+    .then(function (res) { return res.ok ? res.text() : Promise.reject(res.status); })
+    .then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var cards = Array.prototype.slice.call(doc.querySelectorAll('.news-card'), 0, LIMIT);
+      if (!cards.length) return;
+      grid.innerHTML = cards.map(function (c) {
+        var pick = function (sel) {
+          var el = c.querySelector(sel);
+          return el ? esc(el.textContent.trim()) : '';
+        };
+        return '<div class="n-card"><div class="n-date">' + pick('.news-date') +
+               '</div><h4>' + pick('h3') + '</h4><p>' + pick('p') + '</p></div>';
+      }).join('');
+    })
+    .catch(function () { /* keep the cards already in the page */ });
+})();
+</script>
 
 </body>
 </html>
